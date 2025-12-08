@@ -1,0 +1,17 @@
+main[data-barba-namespace='activity'] {
+  > .section:first-child .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-gutter);
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .section figure.has-border {
+    overflow: hidden;
+    border: 1px solid;
+    border-radius: 5px;
+  }
+}

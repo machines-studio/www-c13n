@@ -1,0 +1,28 @@
+:root {
+  --breadcrumb-gap: 1ch;
+
+  --breadcrumb-font-family: var(--geist-mono);
+}
+
+.breadcrumb {
+  @include no-select;
+  @include font('breadcrumb');
+
+  ul {
+    display: flex;
+  }
+
+  li + li {
+    display: flex;
+    margin-left: var(--breadcrumb-gap);
+
+    &::before {
+      content: '›';
+      margin-right: var(--breadcrumb-gap);
+    }
+  }
+
+  a.is-active {
+    font-weight: 600;
+  }
+}

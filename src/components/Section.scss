@@ -1,0 +1,32 @@
+:root {
+  --section-padding: var(--space-gutter);
+  --section-color: currentcolor;
+  --section-background: none;
+}
+
+.section {
+  position: relative;
+  width: 100%;
+  padding: var(--section-padding);
+  color: var(--section-color);
+  background: var(--section-background);
+
+  .wrapper {
+    max-width: var(--max-width);
+    margin-inline: auto;
+  }
+
+  h2 {
+    @include font('title');
+    @include no-select;
+    position: absolute;
+    z-index: 1;
+    top: calc(-0.85em + var(--section-padding));
+    color: var(--footer-background);
+    white-space: nowrap;
+  }
+
+  &:has(h2) {
+    margin-top: var(--title-font-size);
+  }
+}

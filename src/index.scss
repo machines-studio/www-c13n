@@ -3,19 +3,44 @@
 @import '/style/prose';
 
 :root {
-  --color-white: #FFF;
-  --color-black: #222;
+  --max-width: 1440px;
 
-  --space-gutter: 2rem;
+  --color-white: #FAF1E3;
+  --color-darkgreen: #00453B;
+  --color-kiwi: #9EEF20;
 
-  --body-font-family: system-ui, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+  --space-gutter: 4rem;
+
+  --easing: 200ms;
+  --easing-slow: 500ms;
+
+  --z-menu: 1;
+
+  --switzer: switzer, sans-serif;
+  --geist-mono: geist-mono, monospace;
+
+  --body-font-family: var(--switzer);
   --body-font-size: 1.8rem;
   --body-line-height: 130%;
   --body-text-decoration-thickness: 1px;
   --body-text-underline-offset: 0.2em;
 
-  --title-font-size: 4.0rem;
-  --title-font-weight: 700;
+  --menu-font-family: var(--geist-mono);
+  --menu-font-size: 1.5rem;
+  --menu-font-weight: 500;
+
+  --title-font-family: var(--geist-mono);
+  --title-font-size: 14.0rem;
+  --title-line-height: 100%;
+  --title-font-weight: 600;
+
+  --footer-font-family: var(--switzer);
+  --footer-font-size: 1.8rem;
+
+  @supports (font-variation-settings: normal) {
+    --switzer: switzer-v, sans-serif;
+    --geist-mono: geist-mono-v, monospace;
+  }
 
   @include mobile {
     --title-font-size: 6.0rem;
@@ -30,6 +55,11 @@
 /* stylelint-disable no-invalid-position-at-import-rule */
 
 @import '/style/base';
-@import '/components/Article';
-@import '/components/Hello';
+@import '/components/Breadcrumb';
+@import '/components/Menu';
+@import '/components/Footer';
+@import '/components/ScrollStory';
+@import '/components/Section';
+@import '/views/activity';
 @import '/views/default';
+@import '/views/home';

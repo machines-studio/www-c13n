@@ -4,12 +4,17 @@ html {
 
 body {
   @include font('body');
-  color: var(--color-black);
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  color: var(--color-darkgreen);
   background: var(--color-white);
 }
 
 main {
-  padding: var(--space-gutter);
+  > .section:first-child {
+    padding-top: var(--menu-height);
+  }
 }
 
 a {
@@ -31,7 +36,7 @@ a {
 }
 
 figure {
-  img {
+  img, video {
     @include no-select;
     width: 100%;
     height: 100%;
@@ -39,13 +44,12 @@ figure {
     object-position: var(--focus-x, 50%) var(--focus-y, 50%);
   }
 
-  img[data-lazyload][data-decoded='true'] {
-    opacity: 1;
-  }
-
-  img[data-photoswipe] {
-    cursor: pointer;
-    cursor: zoom-in;
+  img[loading='lazy'], video {
+    @media (scripting: enabled) {
+      @include easing(opacity, var(--easing-slow));
+      opacity: 0;
+      &.is-loaded { opacity: 1; }
+    }
   }
 
   figcaption:empty {

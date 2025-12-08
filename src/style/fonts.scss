@@ -1,21 +1,52 @@
 @font-face {
-  font-family: your-font; // wrap in single quotes if spaces in the name
+  font-family: geist-mono-v;
+  font-display: auto;
+  src: url('/assets/geist-mono-variable.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: geist-mono;
+  font-display: auto;
+  font-style: normal;
+  font-weight: normal;
+  src: url('/assets/geist-mono-regular.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: geist-mono;
+  font-display: auto;
+  font-style: normal;
+  font-weight: bold;
+  src: url('/assets/geist-mono-black.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: switzer-v;
+  font-display: auto;
+  src:
+    url('/assets/switzer-variable.woff2') format('woff2'),
+    url('/assets/switzer-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: switzer;
   font-display: auto;
   font-style: normal;
   font-weight: normal;
   src:
-    url('/assets/your-font-regular.woff2') format('woff2'),
-    url('/assets/your-font-regular.woff') format('woff'),
-    url('/assets/your-font-regular.otf') format('opentype');
+    url('/assets/switzer-regular.woff2') format('woff2'),
+    url('/assets/switzer-regular.woff') format('woff'),
+    url('/assets/switzer-regular.ttf') format('opentype');
 }
 
+
 @font-face {
-  font-family: your-font; // wrap in single quotes if spaces in the name
+  font-family: switzer;
   font-display: auto;
   font-style: normal;
   font-weight: bold;
   src:
-    url('/assets/your-font-bold.woff2') format('woff2'),
-    url('/assets/your-font-bold.woff') format('woff'),
-    url('/assets/your-font-bold.otf') format('opentype');
+    url('/assets/switzer-bold.woff2') format('woff2'),
+    url('/assets/switzer-bold.woff') format('woff'),
+    url('/assets/switzer-bold.ttf') format('opentype');
 }

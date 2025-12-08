@@ -3,3 +3,9 @@ title: Site
 sections:
   pages:
     type: pages
+
+  fields:
+    type: fields
+    fields:
+      footerLeft: fields/writer
+      footerRight: fields/writer
