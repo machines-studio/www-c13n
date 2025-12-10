@@ -1,17 +1,12 @@
 main[data-barba-namespace='activity'] {
-  > .section:first-child .wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-gutter);
+  .siblings {
+    margin-block: var(--space-large);
+    border-top: 1px solid;
+    border-bottom: 1px solid;
 
-    @include mobile {
-      grid-template-columns: 1fr;
+    .wrapper {
+      display: flex !important;
+      justify-content: space-between;
     }
-  }
-
-  .section figure.has-border {
-    overflow: hidden;
-    border: 1px solid;
-    border-radius: 5px;
   }
 }

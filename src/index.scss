@@ -3,18 +3,20 @@
 @import '/style/prose';
 
 :root {
-  --max-width: 1440px;
-
   --color-white: #FAF1E3;
   --color-darkgreen: #00453B;
   --color-kiwi: #9EEF20;
+  --color-paprika: #ff511d;
 
   --space-gutter: 4rem;
+  --space-padding: 6rem;
+  --space-large: 10rem;
 
   --easing: 200ms;
   --easing-slow: 500ms;
 
-  --z-menu: 1;
+  --z-logo: 10;
+  --z-menu: 9;
 
   --switzer: switzer, sans-serif;
   --geist-mono: geist-mono, monospace;
@@ -22,17 +24,25 @@
   --body-font-family: var(--switzer);
   --body-font-size: 1.8rem;
   --body-line-height: 130%;
-  --body-text-decoration-thickness: 1px;
-  --body-text-underline-offset: 0.2em;
+
+  --body-mono-font-family: var(--geist-mono);
+  --body-mono-font-size: 1.6rem;
+  --body-mono-line-height: 130%;
 
   --menu-font-family: var(--geist-mono);
-  --menu-font-size: 1.5rem;
+  --menu-font-size: 1.4rem;
   --menu-font-weight: 500;
 
   --title-font-family: var(--geist-mono);
   --title-font-size: 14.0rem;
   --title-line-height: 100%;
   --title-font-weight: 600;
+
+  --zone-font-family: var(--geist-mono);
+  --zone-font-size: 3rem;
+  --zone-font-weight: 600;
+  --zone-line-height: 110%;
+  --zone-text-transform: uppercase;
 
   --footer-font-family: var(--switzer);
   --footer-font-size: 1.8rem;
@@ -55,11 +65,15 @@
 /* stylelint-disable no-invalid-position-at-import-rule */
 
 @import '/style/base';
+@import '/components/Activity';
 @import '/components/Breadcrumb';
-@import '/components/Menu';
 @import '/components/Footer';
-@import '/components/ScrollStory';
+@import '/components/Mask';
+@import '/components/Menu';
+@import '/components/Projects';
 @import '/components/Section';
+@import '/views/about';
 @import '/views/activity';
+@import '/views/contact';
 @import '/views/default';
 @import '/views/home';

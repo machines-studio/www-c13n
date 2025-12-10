@@ -3,6 +3,7 @@
   $title ??= $slots->title();
   $bleed ??= $slots->bleed();
   $content ??= $slots->content();
+  $columns ??= 1;
 
   if (!trim($bleed ?? '') && !trim($content ?? '')) return;
 
@@ -13,10 +14,13 @@
 <<?= $tag ?> <?= attr($attributes) ?>>
   <div class='wrapper'>
     <?php if (trim($title ?? '')) : ?>
-      <h2><?= $title ?></h2>
+      <h2 class='section__title'><?= $title ?></h2>
     <?php endif ?>
 
-    <?= $content ?>
+    <?= $columns > 1
+      ? Html::div([$content], ['class' => "cols-$columns"])
+      : $content
+    ?>
   </div>
 
   <?= $bleed ?>

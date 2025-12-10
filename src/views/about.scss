@@ -1,0 +1,58 @@
+main[data-barba-namespace='about'] {
+  .section h2 {
+    @include font('title');
+    margin-top: var(--space-gutter);
+    margin-bottom: var(--space-padding);
+  }
+
+  .section--about h2,
+  .section--engagements h2,
+  .section--method h2 {
+    @include font('zone');
+    position: relative;
+    width: fit-content;
+    margin-top: 0;
+    margin-bottom: var(--space-large);
+
+    // Underline in bleed
+    &::before {
+      content: '';
+
+      position: absolute;
+      right: 0;
+      bottom: -0.5em;
+      left: -50vw;
+
+      border-bottom: 1px solid;
+    }
+  }
+
+  .section--about,
+  .section--engagements,
+  .section--method {
+    @include font('body-mono');
+    margin-top: 0;
+
+    h4 {
+      font-family: var(--switzer);
+      font-size: 140%;
+      font-weight: 600;
+      line-height: 110%;
+    }
+
+    ul {
+      font-weight: bold;
+    }
+  }
+
+  .section--about .mask {
+    z-index: 1;
+    margin-top: var(--space-padding);
+    margin-bottom: calc(-3 * var(--space-padding));
+  }
+
+  .section--engagements {
+    --section-background: var(--color-darkgreen);
+    --section-color: var(--color-white);
+  }
+}

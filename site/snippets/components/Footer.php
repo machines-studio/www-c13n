@@ -1,5 +1,5 @@
 <?php
-  // TODO[dyanmic]
+  // TODO[panel]
   $left = $site->footerLeft()->kirbytext();
   $right = $site->footerRight()->kirbytext();
 

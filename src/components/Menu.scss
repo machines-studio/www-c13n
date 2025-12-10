@@ -3,6 +3,7 @@
 
   --menu-logo-color: var(--color-darkgreen);
   --menu-logo-height: 10rem;
+  --menu-logo-width: 6rem; // Hardcoded, used for spacing in layouts
   --menu-logo-active-height: 20rem;
 
   --menu-items-max-width: 800px;
@@ -10,11 +11,36 @@
 
   --menu-item-background: var(--color-darkgreen);
   --menu-item-color: var(--color-white);
+  --menu-item-shadow: 0 0 1.2rem rgba(250 241 227 / 30%);
   --menu-item-hover-background: #467A73;
   --menu-item-active-color: var(--color-kiwi);
   --menu-item-radius: 5px;
   --menu-item-padding: 0.25em 1em;
   --menu-item-gap: 5px;
+}
+
+#home {
+  @include easing(height);
+  position: fixed;
+  z-index: var(--z-logo);
+  top: var(--space-gutter);
+  left: var(--space-gutter);
+
+  display: block;
+  height: var(--menu-logo-height);
+
+  color: var(--menu-logo-color);
+
+  mix-blend-mode: multiply;
+
+  &.is-active {
+    height: var(--menu-logo-active-height);
+  }
+
+  svg {
+    width: auto;
+    height: 100%;
+  }
 }
 
 .menu {
@@ -24,7 +50,9 @@
   z-index: var(--z-menu);
   right: 0;
   left: 0;
-  padding: var(--space-gutter);
+
+  padding-block: var(--space-padding);
+  padding-inline: var(--space-gutter);
 
   &__wrapper {
     position: relative;
@@ -32,30 +60,8 @@
     display: flex;
     justify-content: space-between;
     gap: var(--space-gutter);
-    max-width: var(--max-width);
+    max-width: $max-width;
     margin-inline: auto;
-  }
-
-  #home {
-    @include easing(height);
-    position: fixed;
-    left: var(--space-gutter);
-
-    display: block;
-    height: var(--menu-logo-height);
-
-    color: var(--menu-logo-color);
-
-    contain: layout;
-
-    &.is-active {
-      height: var(--menu-logo-active-height);
-    }
-
-    svg {
-      width: auto;
-      height: 100%;
-    }
   }
 
   &__items {
@@ -74,9 +80,12 @@
 
     display: block;
     padding: var(--menu-item-padding);
+
     color: var(--menu-item-color);
+
     background: var(--menu-item-background);
     border-radius: var(--menu-item-radius);
+    box-shadow: var(--menu-item-shadow);
 
     &:hover {
       color: var(--menu-item-hover-color, var(--menu-item-color));

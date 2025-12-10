@@ -29,6 +29,6 @@
     if ($active) $attributes['class'] = ($attributes['class'] ?? '') . ' is-active';
     if (!Str::startsWith($url, $site->url()) && !Str::startsWith($url, '#')) $attributes['target'] = '_blank';
 
-    echo Html::a($url, [$title ?? $url], $attributes);
+    echo Html::a($url, is_array($title) ? $title : [$title ?? $url], $attributes);
   }
 ?>

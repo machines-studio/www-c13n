@@ -1,0 +1,132 @@
+:root {
+  --project-gap: 10px;
+  --project-gallery-gap: 5px;
+  --project-gallery-radius: 5px;
+  --project-meta-padding: 10px;
+}
+
+.projects {
+  padding-inline: 0 !important;
+  padding-top: var(--space-large) !important;
+  margin-top: 0 !important;
+  contain: layout paint;
+  will-change: transform;
+
+  &-spacer {
+    position: relative;
+    pointer-events: none;
+    @include mobile { display: none; }
+  }
+
+  h2 {
+    @include font('zone');
+    font-weight: 300;
+  }
+
+  &__items {
+    @include invisible-scroll(x);
+    display: flex;
+    gap: var(--project-gap);
+    width: 100vw;
+    padding-right: var(--space-gutter);
+    overscroll-behavior-x: none;
+  }
+
+  &__item {
+    display: flex;
+    flex: 0 0 auto;
+
+    // TODO[arrows]
+
+    header {
+      position: sticky;
+      left: 0;
+
+      display: flex;
+      flex-direction: column;
+      width: 33vw;
+      padding-block: var(--space-gutter);
+      padding-right: var(--project-gap);
+      padding-left: calc((100vw - $max-width) / 2);
+
+      background: var(--color-white);
+      border-top: 1px solid;
+      border-bottom: 1px solid;
+
+      @include narrow {
+        padding-left: calc(var(--menu-logo-width) + var(--space-gutter) * 2);
+      }
+
+      // Simulate gap between sticky header and gallery
+      &::after {
+        content: '';
+
+        position: absolute;
+        z-index: 1;
+        top: -1px;
+        right: 0;
+        bottom: -1px;
+
+        border-right: var(--project-gap) solid var(--color-white);
+      }
+
+      nav {
+        a {
+          position: absolute;
+          display: block;
+        }
+
+        a:first-child { left: var(--project-gap); }
+        a:last-child { right: var(--project-gap); }
+        [disabled] { display: none; }
+      }
+
+      h3 {
+        @include font('zone');
+        padding-right: var(--space-gutter);
+      }
+
+      .description {
+        padding-right: var(--space-gutter);
+        margin-top: calc(var(--space-gutter) / 2);
+        font-size: 90%;
+        font-weight: 600;
+        line-height: 120%;
+      }
+
+      .metas {
+        @include font('menu');
+        margin-top: auto;
+      }
+
+      .meta {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--project-meta-padding);
+        padding-block: var(--project-meta-padding);
+        padding-right: var(--space-gutter);
+
+        & + .meta {
+          border-top: 1px solid;
+        }
+
+        &[data-label]::before {
+          content: attr(data-label);
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+      }
+
+    }
+
+    .gallery {
+      display: flex;
+      gap: var(--project-gallery-gap);
+
+      img {
+        max-height: 70vh;
+        border-radius: var(--project-gallery-radius);
+      }
+    }
+  }
+}

@@ -2,7 +2,7 @@
   --footer-logo-color: #008E35;
   --footer-color: var(--color-kiwi);
   --footer-background: var(--color-darkgreen);
-  --footer-shadow: 0 0 10rem var(--color-kiwi);
+  --footer-shadow: 0 -5rem 10rem var(--color-kiwi);
 }
 
 .footer {
@@ -15,12 +15,14 @@
 
   h2 {
     top: -0.84em !important;
+    color: var(--footer-background);
+    white-space: nowrap;
 
     @include mobile {
       display: none;
     }
 
-    &::after { content: '→'; } // TODO svg
+    &::after { content: '→'; } // TODO[arrows]
   }
 
   &__content,
@@ -65,8 +67,8 @@
 
   a[href='#top'] {
     position: absolute;
-    top: var(--section-padding);
-    right: var(--section-padding);
+    top: var(--space-padding);
+    right: var(--space-padding);
     bottom: 0;
 
     display: block;

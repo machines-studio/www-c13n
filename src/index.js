@@ -14,7 +14,9 @@ import mediaReady from '/utils/media-ready'
       ],
 
       // Inside barba wrapper
-      local: []
+      local: [
+        await import('/components/Projects')
+      ]
     },
 
     afterEnter: async next => {

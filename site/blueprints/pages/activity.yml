@@ -1,0 +1,8 @@
+# TODO[panel]
+sections:
+  fields:
+    type: fields
+    fields:
+      text: fields/writer
+
+  pages:

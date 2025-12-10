@@ -1,0 +1,27 @@
+main[data-barba-namespace='contact'] {
+  .section--header,
+  .section--cover {
+    --section-background: var(--color-darkgreen);
+    --section-color: var(--color-white);
+  }
+
+  .section--header {
+    z-index: 1;
+    margin-bottom: 0;
+  }
+
+  .section--cover {
+    padding-bottom: 0;
+    margin-top: 0;
+
+    figure {
+      margin-top: calc(-1 * var(--space-gutter));
+      transform: translateY(var(--space-gutter));
+    }
+  }
+
+  .activities {
+    margin-block: var(--space-large);
+    .wrapper > [class^='cols-'] { place-items: center; }
+  }
+}
