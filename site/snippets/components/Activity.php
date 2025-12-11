@@ -1,5 +1,5 @@
 <?php
-  $item ??= null;
+  $item ??= $page ?? null;
   if (!$item) return;
 
   snippet('html/link', [

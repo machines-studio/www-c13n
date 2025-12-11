@@ -4,5 +4,7 @@ sections:
     type: fields
     fields:
       text: fields/writer
+      cover:
+        type: files
 
   pages:

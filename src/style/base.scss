@@ -68,7 +68,7 @@ figure {
   }
 }
 
-[class^='cols-'] {
+[class*='cols-'] {
   display: grid;
   grid-template-columns: repeat(var(--columns, 1), 1fr);
   gap: var(--space-gutter);

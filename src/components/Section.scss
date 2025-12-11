@@ -13,6 +13,9 @@
   color: var(--section-color);
 
   background: var(--section-background);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 
   .wrapper {
     max-width: $max-width;
@@ -20,6 +23,10 @@
 
     @include narrow {
       margin-inline: calc(var(--menu-logo-width) + var(--space-gutter) * 2) 0;
+    }
+
+    @include mobile {
+      margin-inline: auto;
     }
   }
 

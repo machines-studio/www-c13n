@@ -1,0 +1,100 @@
+{
+  "assets/geist-mono-black.ttf": {
+    "file": "assets/geist-mono-black-we-N16nf.ttf",
+    "src": "assets/geist-mono-black.ttf"
+  },
+  "assets/geist-mono-regular.ttf": {
+    "file": "assets/geist-mono-regular-DLqb_3QR.ttf",
+    "src": "assets/geist-mono-regular.ttf"
+  },
+  "assets/geist-mono-variable.ttf": {
+    "file": "assets/geist-mono-variable-BlNDD6KS.ttf",
+    "src": "assets/geist-mono-variable.ttf"
+  },
+  "assets/switzer-bold.ttf": {
+    "file": "assets/switzer-bold-Cb9Pr7WV.ttf",
+    "src": "assets/switzer-bold.ttf"
+  },
+  "assets/switzer-bold.woff": {
+    "file": "assets/switzer-bold-ByVEImyI.woff",
+    "src": "assets/switzer-bold.woff"
+  },
+  "assets/switzer-bold.woff2": {
+    "file": "assets/switzer-bold-9JzFtTp4.woff2",
+    "src": "assets/switzer-bold.woff2"
+  },
+  "assets/switzer-regular.ttf": {
+    "file": "assets/switzer-regular-DuwSOVS1.ttf",
+    "src": "assets/switzer-regular.ttf"
+  },
+  "assets/switzer-regular.woff": {
+    "file": "assets/switzer-regular-BDtbbAkZ.woff",
+    "src": "assets/switzer-regular.woff"
+  },
+  "assets/switzer-regular.woff2": {
+    "file": "assets/switzer-regular-BxEtgLLb.woff2",
+    "src": "assets/switzer-regular.woff2"
+  },
+  "assets/switzer-variable.woff2": {
+    "file": "assets/switzer-variable-7Oa6q7Y4.woff2",
+    "src": "assets/switzer-variable.woff2"
+  },
+  "components/Menu.js": {
+    "file": "assets/Menu-CcWoMF0p.js",
+    "name": "Menu",
+    "src": "components/Menu.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.js"
+    ]
+  },
+  "components/Projects.js": {
+    "file": "assets/Projects-DYDSv4Uh.js",
+    "name": "Projects",
+    "src": "components/Projects.js",
+    "isDynamicEntry": true
+  },
+  "index.js": {
+    "file": "assets/index-Dpv2Pf8m.js",
+    "name": "index",
+    "src": "index.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "views/default.js",
+      "components/Menu.js",
+      "components/Projects.js"
+    ]
+  },
+  "index.scss": {
+    "file": "assets/index-BkB8eXx5.css",
+    "src": "index.scss",
+    "isEntry": true
+  },
+  "panel.css": {
+    "file": "assets/panel-CvZKDwJf.js",
+    "name": "panel",
+    "src": "panel.css",
+    "isEntry": true,
+    "css": [
+      "assets/panel-B_SY1GJM.css"
+    ]
+  },
+  "panel.js": {
+    "file": "assets/panel-08zNAYie.js",
+    "name": "panel",
+    "src": "panel.js",
+    "isEntry": true,
+    "imports": [
+      "panel.css"
+    ]
+  },
+  "views/default.js": {
+    "file": "assets/default-D7uZ0JnF.js",
+    "name": "default",
+    "src": "views/default.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.js"
+    ]
+  }
+}
