@@ -14,6 +14,10 @@ body {
 main {
   > .section:first-child {
     padding-top: var(--menu-height);
+
+    @include mobile {
+      padding-top: calc(var(--menu-height) * 0.75);
+    }
   }
 }
 
@@ -57,7 +61,7 @@ figure {
 
   img[loading='lazy'], video {
     @media (scripting: enabled) {
-      @include easing(opacity, var(--easing-slow));
+      @include easing(opacity, var(--easing));
       opacity: 0;
       &.is-loaded { opacity: 1; }
     }

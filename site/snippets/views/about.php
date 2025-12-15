@@ -20,7 +20,9 @@
 ?>
 
 <?php
-  snippet('components/Section', slots: true);
+  snippet('components/Section', [
+    'attributes' => ['class' => 'offset']
+  ], slots: true);
     slot('content');
       snippet('components/Breadcrumb');
       echo Html::tag('h2', $page->title());
@@ -32,7 +34,7 @@
   snippet('components/Section', [
     'title' => 'Qui sommes-nous ?', // TODO[panel]
     'columns' => 2,
-    'attributes' => ['class' => 'section--about prose',]
+    'attributes' => ['class' => 'section--about prose offset']
   ], slots: true);
     slot('content');
       echo Html::div([$about]);
@@ -48,7 +50,7 @@
   snippet('components/Section', [
     'title' => 'Nos engagements', // TODO[panel]
     'columns' => 3,
-    'attributes' => ['class' => 'section--engagements prose']
+    'attributes' => ['class' => 'section--engagements prose offset']
   ], slots: true);
     slot('content');
       // TODO[panel]
@@ -63,7 +65,7 @@
   snippet('components/Section', [
     'title' => 'Notre méthode', // TODO[panel]
     'columns' => 2,
-    'attributes' => ['class' => 'section--method prose']
+    'attributes' => ['class' => 'section--method prose offset']
   ], slots: true);
     slot('content');
     // TODO[panel]

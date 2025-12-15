@@ -21,6 +21,10 @@
   h2 {
     @include font('zone');
     font-weight: 300;
+
+    @include mobile {
+      margin-left: var(--space-gutter);
+    }
   }
 
   &__items {
@@ -30,13 +34,19 @@
     width: 100vw;
     padding-right: var(--space-gutter);
     overscroll-behavior-x: none;
+
+    @include mobile {
+      flex-direction: column;
+    }
   }
 
   &__item {
     display: flex;
     flex: 0 0 auto;
 
-    // TODO[arrows]
+    @include mobile {
+      flex-direction: column;
+    }
 
     header {
       position: sticky;
@@ -57,6 +67,13 @@
         padding-left: calc(var(--menu-logo-width) + var(--space-gutter) * 2);
       }
 
+      @include mobile {
+        width: unset;
+        padding-left: 0;
+        margin-left: var(--space-gutter);
+        border-bottom: 0;
+      }
+
       // Simulate gap between sticky header and gallery
       &::after {
         content: '';
@@ -68,15 +85,23 @@
         bottom: -1px;
 
         border-right: var(--project-gap) solid var(--color-white);
+
+        @include mobile {
+          display: none;
+        }
       }
 
       nav {
+        @include mobile {
+          display: none;
+        }
+
         a {
           position: absolute;
           display: block;
         }
 
-        a:first-child { left: var(--project-gap); }
+        a:first-child { left: var(--project-gap); transform: scaleX(-1); }
         a:last-child { right: var(--project-gap); }
         [disabled] { display: none; }
       }
@@ -97,6 +122,10 @@
       .metas {
         @include font('menu');
         margin-top: auto;
+
+        @include mobile {
+          font-size: var(--body-font-size);
+        }
       }
 
       .meta {
@@ -123,9 +152,25 @@
       display: flex;
       gap: var(--project-gallery-gap);
 
+      @include mobile {
+        @include invisible-scroll(x);
+        padding-bottom: var(--space-gutter);
+        padding-left: var(--space-gutter);
+      }
+
+      li {
+        @include mobile {
+          flex: 0 0 auto;
+        }
+      }
+
       img {
         max-height: 70vh;
         border-radius: var(--project-gallery-radius);
+
+        @include mobile {
+          max-width: 70vw;
+        }
       }
     }
   }

@@ -10,6 +10,7 @@
 
 <?php snippet('components/Section', [
   'columns' => 2,
+  'attributes' => ['class' => 'offset']
 ], slots: true) ?>
   <?php slot('content') ?>
     <?php snippet('components/Breadcrumb') ?>
@@ -21,7 +22,8 @@
 
 <?php
   snippet('components/Section', [
-    'title' => $page->title()
+    'title' => $page->title(),
+    'attributes' => ['class' => 'offset']
   ], slots: true);
     slot('bleed');
       snippet('html/image', [

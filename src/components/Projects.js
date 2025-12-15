@@ -1,10 +1,13 @@
 import { raf } from '@internet/raf'
+import IS_MOBILE from '/utils/is-mobile'
 
 export const selector = '.projects'
 
 const OFFY = 100
 
 export function hydrate (element) {
+  if (IS_MOBILE) return
+
   const scroller = element.querySelector('.projects__items')
 
   // Used to allow element to be scrolled its whole width

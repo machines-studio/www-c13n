@@ -13,9 +13,7 @@
 
 <?php snippet('components/Section', [
   'tag' => 'footer',
-  'attributes' => [
-    'class' => 'footer'
-  ]
+  'attributes' => ['class' => 'footer offset']
 ], slots: true) ?>
   <?php slot('title') ?>
     <?php snippet('html/link', [

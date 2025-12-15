@@ -35,6 +35,7 @@
     "@barba/core": "^2.10.0",
     "@barba/prefetch": "^2.2.0",
     "@internet/raf": "^0.2.1",
+    "bowser": "^2.13.1",
     "lozad": "^1.16.0",
     "missing-math": "^3.5.1"
   }

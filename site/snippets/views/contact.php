@@ -6,9 +6,7 @@
 <?php
   snippet('components/Section', [
     'columns' => 2,
-    'attributes' => [
-      'class' => 'section--header cols-2'
-    ]
+    'attributes' => ['class' => 'section--header offset']
   ], slots: true);
     slot('content');
       snippet('components/Breadcrumb');
@@ -20,7 +18,7 @@
 <?php
   snippet('components/Section', [
     'title' => $page->title(),
-    'attributes' => ['class' => 'section--cover']
+    'attributes' => ['class' => 'section--cover offset']
   ], slots: true);
     slot('bleed');
       snippet('html/image', [

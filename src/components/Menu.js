@@ -6,6 +6,13 @@ export function hydrate (element) {
   const home = document.getElementById('home')
   const links = Array.from([home, ...element.querySelectorAll('a')])
 
+  // Leave mobile menu
+  const toggle = document.querySelector('#toggle-menu')
+  Barba.hooks.beforeLeave(() => { toggle.checked = false })
+  for (const link of links) {
+    link.addEventListener('click', e => { toggle.checked = false })
+  }
+
   // Act on page change
   Barba.hooks.enter((data) => {
     // Update links state

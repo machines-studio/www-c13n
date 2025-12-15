@@ -6,9 +6,7 @@
 
 <?php snippet('components/Section', [
   'title' => $title,
-  'attributes' => [
-    'class' => 'projects'
-  ]
+  'attributes' => ['class' => 'projects offset']
 ], slots: true) ?>
   <?php slot('bleed') ?>
     <ul class='projects__items'>
@@ -18,16 +16,14 @@
             <nav>
               <?php snippet('html/link', [
                 'url' => '#' . $project->prev($projects)?->slug(),
-                // TODO[arrows]
-                'title' => '←',
+                'title' => snippet('svg/arrow', [], true),
                 'attributes' => [
                   'disabled' => !$project->prev($projects)
                 ]
               ]) ?>
               <?php snippet('html/link', [
                 'url' => '#' . $project->next($projects)?->slug(),
-                // TODO[arrows]
-                'title' => '→',
+                'title' => snippet('svg/arrow', [], true),
                 'attributes' => [
                   'disabled' => !$project->next($projects)
                 ]

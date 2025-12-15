@@ -2,6 +2,10 @@ main[data-barba-namespace='home'] {
   > .hero {
     width: 100%;
     height: 100vh;
+
+    @include mobile {
+      height: 50vh;
+    }
   }
 
   .section--description {
@@ -15,7 +19,6 @@ main[data-barba-namespace='home'] {
       @include font('header');
       position: relative;
       z-index: 1;
-      margin-inline: auto !important;
       text-align: center;
 
       > div {
@@ -27,6 +30,10 @@ main[data-barba-namespace='home'] {
       h2 {
         @include font('zone');
         font-size: 8rem;
+
+        @include mobile {
+          font-size: 6rem;
+        }
       }
     }
 
@@ -64,11 +71,17 @@ main[data-barba-namespace='home'] {
         @include font('zone');
         display: flex;
         justify-content: space-between;
+        align-items: baseline;
         margin-top: var(--space-gutter);
 
         &::after {
-          content: '→'; // TODO[arrows]
+          @include easing(transform);
+          @include arrow;
         }
+      }
+
+      a:hover span::after {
+        transform: translateX(100%);
       }
     }
   }

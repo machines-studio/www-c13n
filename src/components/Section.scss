@@ -21,6 +21,9 @@
     max-width: $max-width;
     margin-inline: auto;
 
+  }
+
+  &.offset .wrapper {
     @include narrow {
       margin-inline: calc(var(--menu-logo-width) + var(--space-gutter) * 2) 0;
     }

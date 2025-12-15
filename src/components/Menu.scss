@@ -17,6 +17,14 @@
   --menu-item-radius: 5px;
   --menu-item-padding: 0.25em 1em;
   --menu-item-gap: 5px;
+
+  @include mobile {
+    --menu-logo-height: 14rem;
+    --menu-logo-active-height: var(--menu-logo-height);
+
+    --menu-item-gap: 1rem;
+    --menu-item-padding: 0.5em 0.75em;
+  }
 }
 
 #home {
@@ -64,6 +72,47 @@
     margin-inline: auto;
   }
 
+  label[for='toggle-menu'] {
+    @include font('menu');
+    position: absolute;
+    right: var(--space-gutter);
+
+    padding: var(--menu-item-padding);
+    cursor: pointer;
+
+    color: var(--menu-item-color);
+
+    background: var(--menu-item-background);
+    border-radius: var(--menu-item-radius);
+    box-shadow: var(--menu-item-shadow);
+
+    @include desktop { display: none; }
+
+    svg {
+      height: 1em;
+      overflow: visible;
+
+      path {
+        @include easing(transform);
+        transform-origin: 50% 50%;
+      }
+    }
+  }
+
+  #toggle-menu:checked ~ & label[for='toggle-menu'] {
+    svg path:nth-child(1) {
+      transform: translateX(-4px) translateY(4px) rotate(45deg) scaleX(1.42);
+    }
+
+    svg path:nth-child(2) {
+      transform: scaleX(0);
+    }
+
+    svg path:nth-child(3) {
+      transform: translateX(-4px) translateY(-4px) rotate(-45deg) scaleX(1.42);
+    }
+  }
+
   &__items {
     position: absolute;
     right: 0;
@@ -73,9 +122,26 @@
     gap: var(--menu-item-gap);
     width: 100%;
     max-width: max(var(--menu-items-width), var(--menu-items-max-width));
+
+    @include mobile {
+      position: fixed;
+      top: calc(var(--space-padding) + var(--menu-font-size) * 2 + var(--menu-item-gap));
+      right: var(--space-gutter);
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  }
+
+  #toggle-menu:not(:checked) ~ & &__wrapper &__items {
+    @include mobile {
+      display: none;
+    }
   }
 
   &__item a {
+    @include easing((background, color));
     @include font('menu');
 
     display: block;
@@ -97,4 +163,8 @@
       background: var(--menu-item-active-background, var(--menu-item-background));
     }
   }
+}
+
+#toggle-menu {
+  display: none;
 }

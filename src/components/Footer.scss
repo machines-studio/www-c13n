@@ -15,6 +15,11 @@
 
   h2 {
     top: -0.84em !important;
+
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-large);
+
     color: var(--footer-background);
     white-space: nowrap;
 
@@ -22,7 +27,14 @@
       display: none;
     }
 
-    &::after { content: '→'; } // TODO[arrows]
+    &::after {
+      @include easing(transform);
+      @include arrow;
+    }
+
+    &:hover::after {
+      transform: translateX(100%);
+    }
   }
 
   &__content,

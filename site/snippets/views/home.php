@@ -49,7 +49,7 @@
 ]) ?>
 
 <?php snippet('components/Section', [
-  'attributes' => ['class' => 'section--numbers']
+  'attributes' => ['class' => 'section--numbers offset']
 ], slots: true) ?>
   <?php slot('content') ?>
     <div class='prose'><?= $text ?></div>

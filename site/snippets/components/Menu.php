@@ -1,3 +1,5 @@
+<input type='checkbox' id='toggle-menu'>
+
 <a
   id='home'
   href='<?= $site->url() ?>'
@@ -8,6 +10,7 @@
 </a>
 
 <nav class='menu'>
+  <label for='toggle-menu'><?php snippet('svg/hamburger') ?></label>
   <div class='menu__wrapper'>
     <menu class='menu__items'>
       <?php foreach ($site->children()->listed() as $child) : ?>

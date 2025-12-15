@@ -7,6 +7,12 @@ main[data-barba-namespace='activity'] {
     .wrapper {
       display: flex !important;
       justify-content: space-between;
+      gap: var(--space-gutter);
+
+      @include mobile {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
     }
   }
 }
