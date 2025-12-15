@@ -1,1 +1,9 @@
-Title: Titre du site
+Title: C13N
+
+----
+
+Footerleft: <p><strong>C13N Group</strong><br><a href="tel:+33643231248">+33 (0)6 43 23 12 48</a><br><a href="mailto:contact@c13ngroup.com">contact@c13ngroup.com</a></p><p><strong>[ AGENCE SEINE-MARITIME ]</strong><br>24 rue Sœur Sainte-Fidéline,<br>76 260 EU</p>
+
+----
+
+Footerright: <p>Prendre rendez-vous<br>Nous suivre sur les réseaux</p>

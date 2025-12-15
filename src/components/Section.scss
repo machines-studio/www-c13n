@@ -1,0 +1,47 @@
+:root {
+  --section-color: currentcolor;
+  --section-background: none;
+}
+
+.section {
+  position: relative;
+
+  width: 100%;
+  padding-block: var(--space-padding);
+  padding-inline: var(--space-gutter);
+
+  color: var(--section-color);
+
+  background: var(--section-background);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+
+  .wrapper {
+    max-width: $max-width;
+    margin-inline: auto;
+
+  }
+
+  &.offset .wrapper {
+    @include narrow {
+      margin-inline: calc(var(--menu-logo-width) + var(--space-gutter) * 2) 0;
+    }
+
+    @include mobile {
+      margin-inline: auto;
+    }
+  }
+
+  &__title {
+    @include font('title');
+    @include no-select;
+    position: absolute;
+    z-index: 1;
+    top: calc(-0.85em + var(--space-padding));
+  }
+
+  &:has(&__title) {
+    margin-top: var(--title-font-size);
+  }
+}

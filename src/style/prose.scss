@@ -13,6 +13,16 @@
     list-style: disc outside;
   }
 
+  li {
+    padding-left: 1ch;
+    margin-left: -0.5ch;
+    list-style-type: '▶';
+
+    &::marker {
+      color: var(--color-paprika);
+    }
+  }
+
   ol {
     padding-left: 1em;
     list-style: numeric outside;

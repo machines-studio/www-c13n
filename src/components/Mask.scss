@@ -1,0 +1,10 @@
+.mask {
+  width: 100%;
+  height: auto;
+  vector-effect: non-scaling-stroke;
+
+  &[data-mask='1'] path:nth-child(2),
+  &[data-mask='2'] path:nth-child(1) {
+    display: none;
+  }
+}

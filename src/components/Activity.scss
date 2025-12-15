@@ -1,0 +1,37 @@
+.activity {
+  @include font('zone');
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding-block: var(--space-gutter);
+
+  svg {
+    position: absolute;
+  }
+
+  &::after {
+    @include easing(transform);
+    @include arrow(right);
+    margin-left: var(--space-gutter);
+  }
+
+  &:first-child:has(+ &:last-child)::before {
+    @include easing(transform);
+    @include arrow(left);
+    margin-right: var(--space-gutter);
+  }
+
+  &:first-child:has(+ &:last-child)::after { display: none; }
+
+  &:hover::after {
+    transform: translateX(100%);
+  }
+
+  &:hover::before {
+    transform: translateX(-100%);
+  }
+}

@@ -7,8 +7,13 @@ return [
   'name' => 'Français',
   'url' => '/',
 
-  // Write your custom languages variables here, and use them in your snippets using t('go.home', 'fallback')
   'translations' => [
+    'menu.go-home' => 'Retourner à l’accueil',
     'sitemap' => 'Plan du site',
+
+    'activity.projects.title' => 'Sélection',
+
+    'footer.contact' => 'Nous contacter',
+    'footer.copyright' => '© Tous droits réservés, { year }'
   ]
 ];

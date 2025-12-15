@@ -40,7 +40,7 @@
       'poster' => $poster?->url()
     ]) ?>
   >
-    <?php foreach ($video->optimizedSources() as $source) echo $source ?>
+    <source src='<?= $video->url() ?>' type='<?= $video->mime() ?>'>
   </video>
   <figcaption>
     <?= $caption ?>

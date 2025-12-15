@@ -3,33 +3,105 @@
 @import '/style/prose';
 
 :root {
-  --color-white: #FFF;
-  --color-black: #222;
+  --color-white: #FAF1E3;
+  --color-darkgreen: #00453B;
+  --color-kiwi: #9EEF20;
+  --color-paprika: #ff511d;
 
-  --space-gutter: 2rem;
+  --space-gutter: 4rem;
+  --space-padding: 6rem;
+  --space-large: 10rem;
 
-  --body-font-family: system-ui, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+  --easing: 200ms;
+  --easing-ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  --z-logo: 10;
+  --z-menu: 9;
+
+  --switzer: switzer, sans-serif;
+  --geist-mono: geist-mono, monospace;
+
+  --body-font-family: var(--switzer);
   --body-font-size: 1.8rem;
   --body-line-height: 130%;
-  --body-text-decoration-thickness: 1px;
-  --body-text-underline-offset: 0.2em;
 
-  --title-font-size: 4.0rem;
-  --title-font-weight: 700;
+  --header-font-family: var(--switzer);
+  --header-font-size: 2.5rem;
+  --header-line-height: 130%;
+
+  --body-mono-font-family: var(--geist-mono);
+  --body-mono-font-size: 1.6rem;
+  --body-mono-line-height: 130%;
+
+  --menu-font-family: var(--geist-mono);
+  --menu-font-size: 1.4rem;
+  --menu-font-weight: 500;
+
+  --title-font-family: var(--geist-mono);
+  --title-font-size: 14.0rem;
+  --title-line-height: 100%;
+  --title-font-weight: 600;
+
+  --zone-font-family: var(--geist-mono);
+  --zone-font-size: 3rem;
+  --zone-font-weight: 600;
+  --zone-line-height: 110%;
+  --zone-text-transform: uppercase;
+
+  --footer-font-family: var(--switzer);
+  --footer-font-size: 1.8rem;
+
+  @supports (font-variation-settings: normal) {
+    --switzer: switzer-v, sans-serif;
+    --geist-mono: geist-mono-v, monospace;
+  }
 
   @include mobile {
-    --title-font-size: 6.0rem;
-    --body-font-size: 2.2rem;
-  }
+    --space-gutter: 2rem;
+    --space-padding: 4rem;
+    --space-large: 6rem;
 
-  @include retina {
-    --body-text-decoration-thickness: 15px;
+    --body-font-size: 1.8rem;
+    --header-font-size: 2.0rem;
+    --body-mono-font-size: 1.6rem;
+    --menu-font-size: 2.2rem;
+    --title-font-size: 5rem;
+    --zone-font-size: 2.4rem;
   }
 }
+
+@mixin arrow ($direction: right, $size: 0.75em, $color: currentcolor) {
+  content: '';
+
+  display: inline-block;
+  width: $size;
+  height: $size;
+
+  background-color: $color;
+
+  mask-repeat: no-repeat;
+  mask-position: center;
+
+  @if $direction == 'right' {
+    mask-image: url("data:image/svg+xml,%3Csvg width='100%' height='100%' viewBox='0 0 28 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 11.8182H22.2827C23.2273 11.8182 23.625 11.9167 24.4702 12.1136C24.8679 12.2121 25.017 12.1136 25.0668 11.8674C25.1165 11.6705 24.8182 11.5227 24.5199 11.4242C24.0227 11.2765 23.4759 11.0303 23.277 10.8826L14.0795 3.15152V0L28 11.8182V14.1818L14.0795 26V22.8485L23.277 15.1174C23.4759 14.9697 24.0227 14.7235 24.5199 14.5758C24.8182 14.4773 25.1165 14.3295 25.0668 14.1326C25.017 13.8864 24.8679 13.7879 24.4702 13.8864C23.625 14.0833 23.2273 14.1818 22.2827 14.1818H0V11.8182Z' fill='black'/%3E%3C/svg%3E%0A");
+  } @else {
+    mask-image: url("data:image/svg+xml,%3Csvg width='100%' height='100%' viewBox='0 0 28 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M28 11.8182H5.71733C4.77273 11.8182 4.375 11.9167 3.52983 12.1136C3.1321 12.2121 2.98295 12.1136 2.93324 11.8674C2.88352 11.6705 3.18182 11.5227 3.48011 11.4242C3.97727 11.2765 4.52415 11.0303 4.72301 10.8826L13.9205 3.15152V0L0 11.8182V14.1818L13.9205 26V22.8485L4.72301 15.1174C4.52415 14.9697 3.97727 14.7235 3.48011 14.5758C3.18182 14.4773 2.88352 14.3295 2.93324 14.1326C2.98295 13.8864 3.1321 13.7879 3.52983 13.8864C4.375 14.0833 4.77273 14.1818 5.71733 14.1818H28V11.8182Z' fill='black'/%3E%3C/svg%3E%0A");
+  }
+}
+
 
 /* stylelint-disable no-invalid-position-at-import-rule */
 
 @import '/style/base';
-@import '/components/Article';
-@import '/components/Hello';
+@import '/components/Activity';
+@import '/components/Breadcrumb';
+@import '/components/Footer';
+@import '/components/Mask';
+@import '/components/Menu';
+@import '/components/Projects';
+@import '/components/Section';
+@import '/views/about';
+@import '/views/activity';
+@import '/views/contact';
 @import '/views/default';
+@import '/views/home';

@@ -4,12 +4,26 @@ html {
 
 body {
   @include font('body');
-  color: var(--color-black);
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  color: var(--color-darkgreen);
   background: var(--color-white);
 }
 
 main {
-  padding: var(--space-gutter);
+  > .section:first-child {
+    padding-top: var(--menu-height);
+
+    @include mobile {
+      padding-top: calc(var(--menu-height) * 0.75);
+    }
+  }
+}
+
+::selection {
+  color: var(--color-darkgreen);
+  background: var(--color-kiwi);
 }
 
 a {
@@ -31,7 +45,13 @@ a {
 }
 
 figure {
-  img {
+  &.has-border {
+    overflow: hidden;
+    border: 1px solid;
+    border-radius: 5px;
+  }
+
+  img, video {
     @include no-select;
     width: 100%;
     height: 100%;
@@ -39,16 +59,28 @@ figure {
     object-position: var(--focus-x, 50%) var(--focus-y, 50%);
   }
 
-  img[data-lazyload][data-decoded='true'] {
-    opacity: 1;
-  }
-
-  img[data-photoswipe] {
-    cursor: pointer;
-    cursor: zoom-in;
+  img[loading='lazy'], video {
+    @media (scripting: enabled) {
+      @include easing(opacity, var(--easing));
+      opacity: 0;
+      &.is-loaded { opacity: 1; }
+    }
   }
 
   figcaption:empty {
     display: none;
   }
+}
+
+[class*='cols-'] {
+  display: grid;
+  grid-template-columns: repeat(var(--columns, 1), 1fr);
+  gap: var(--space-gutter);
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+
+  &.cols-2 { --columns: 2; }
+  &.cols-3 { --columns: 3; }
 }

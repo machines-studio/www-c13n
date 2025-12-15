@@ -1,0 +1,99 @@
+:root {
+  --footer-logo-color: #008E35;
+  --footer-color: var(--color-kiwi);
+  --footer-background: var(--color-darkgreen);
+  --footer-shadow: 0 -5rem 10rem var(--color-kiwi);
+}
+
+.footer {
+  @include font('footer');
+  --section-background: var(--color-darkgreen);
+  --section-color: var(--footer-color);
+  --title-font-size: 10rem;
+
+  box-shadow: var(--footer-shadow);
+
+  h2 {
+    top: -0.84em !important;
+
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-large);
+
+    color: var(--footer-background);
+    white-space: nowrap;
+
+    @include mobile {
+      display: none;
+    }
+
+    &::after {
+      @include easing(transform);
+      @include arrow;
+    }
+
+    &:hover::after {
+      transform: translateX(100%);
+    }
+  }
+
+  &__content,
+  &__main,
+  &__socials,
+  &__links {
+    display: flex;
+    gap: var(--space-gutter);
+
+    p + p {
+      margin-top: var(--space-gutter);
+    }
+  }
+
+  &__main {
+    @include mobile {
+      flex-direction: column;
+    }
+  }
+
+  &__content {
+    flex-direction: column;
+  }
+
+  &__socials {
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 1em;
+  }
+
+  &__links {
+    @include no-select;
+    font-family: var(--geist-mono);
+    font-size: 1.2rem;
+    line-height: 120%;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 0.75em;
+    }
+  }
+
+  a[href='#top'] {
+    position: absolute;
+    top: var(--space-padding);
+    right: var(--space-padding);
+    bottom: 0;
+
+    display: block;
+
+    color: var(--footer-logo-color);
+
+    @include mobile {
+      bottom: unset;
+    }
+
+    svg {
+      width: auto;
+      height: 100%;
+    }
+  }
+}
