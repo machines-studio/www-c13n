@@ -40,7 +40,7 @@
     "src": "assets/switzer-variable.woff2"
   },
   "components/Menu.js": {
-    "file": "assets/Menu-BZoRu409.js",
+    "file": "assets/Menu-Cge3T7_D.js",
     "name": "Menu",
     "src": "components/Menu.js",
     "isDynamicEntry": true,
@@ -49,13 +49,13 @@
     ]
   },
   "components/Projects.js": {
-    "file": "assets/Projects-BAMA6cC-.js",
+    "file": "assets/Projects-_xXO2awy.js",
     "name": "Projects",
     "src": "components/Projects.js",
     "isDynamicEntry": true
   },
   "index.js": {
-    "file": "assets/index-p6iB7gdc.js",
+    "file": "assets/index-Kr-7kvFn.js",
     "name": "index",
     "src": "index.js",
     "isEntry": true,
@@ -89,7 +89,7 @@
     ]
   },
   "views/default.js": {
-    "file": "assets/default-BttZbSWQ.js",
+    "file": "assets/default-TZ-Iuj2P.js",
     "name": "default",
     "src": "views/default.js",
     "isDynamicEntry": true,
