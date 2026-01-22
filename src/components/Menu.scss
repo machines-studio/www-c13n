@@ -61,6 +61,11 @@
 
   padding-block: var(--space-padding);
   padding-inline: var(--space-gutter);
+  pointer-events: none;
+
+  * {
+    pointer-events: auto;
+  }
 
   &__wrapper {
     position: relative;
