@@ -1,65 +1,61 @@
-import { raf } from '@internet/raf'
 import IS_MOBILE from '/utils/is-mobile'
 
 export const selector = '.projects'
 
-const OFFY = 100
-
 export function hydrate (element) {
   if (IS_MOBILE) return
 
-  const scroller = element.querySelector('.projects__items')
+  let nextFrame
+  const gallery = element.querySelector('.projects__gallery')
+  const details = element.querySelectorAll('details')
+  const images = element.querySelectorAll('.projects__item .gallery li')
 
-  // Used to allow element to be scrolled its whole width
-  const spacer = document.createElement('div')
-  spacer.classList.add('projects-spacer')
-  element.insertAdjacentElement('afterend', spacer)
+  // Modify DOM on desktop (OMG…)
+  for (const image of images) gallery.appendChild(image)
 
-  //
-  for (const nav of element.querySelectorAll('nav a[href^="#"]')) {
-    nav.addEventListener('click', e => {
-      e.preventDefault()
-      const project = element.querySelector('#' + nav.href.split('#').pop())
-      scrollTo(project)
-    })
-  }
+  // Bindings
+  for (const detail of details) detail.addEventListener('click', handleDetailClick)
+  gallery.addEventListener('wheel', handleGalleryWheel)
 
-  // Bind
-  raf.add(tick)
-  scroller.addEventListener('wheel', handleWheel)
+  return {}
 
-  return {
-    destroy: () => {
-      raf.remove(tick)
+  function open (targetDetail) {
+    if (!targetDetail) return
+
+    // Radio behavior
+    for (const el of details) {
+      el.open = targetDetail === el
     }
   }
 
-  function tick (e) {
-    const y = document.documentElement.scrollTop
-    const offsetTop = spacer.offsetTop
+  function handleDetailClick (e) {
+    const current = e.target.closest('details')
 
-    // Scroll scroller
-    scroller.scrollLeft = y - offsetTop
-
-    // Adjust spacer height based on element width (images are lazyloaded)
-    spacer.style.height = OFFY + scroller.scrollWidth - element.clientWidth + element.clientHeight + 'px'
-
-    // Simulate a sticky position on element (CSS sticky does not allow the full wanted behavior)
-    element.style.position = 'fixed'
-    element.style.top = 0
-    element.style.transform = `translateY(${
-      scroller.scrollLeft + scroller.clientWidth < scroller.scrollWidth
-        ? Math.max(offsetTop - y, OFFY)
-        : offsetTop - y + parseInt(spacer.style.height) - element.clientHeight
-    }px)`
-  }
-
-  function scrollTo (project) {
-    document.documentElement.scrollTop = spacer.offsetTop + project.offsetLeft
-  }
-
-  function handleWheel (e) {
-    if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return
     e.preventDefault()
+    open(current)
+
+    // Scroll to image
+    const image = gallery.querySelector('#' + current.id)
+    console.log(image.offsetLeft)
+    gallery.scrollTo({
+      left: image.offsetLeft,
+      behavior: 'smooth',
+    })
+  }
+
+  function handleGalleryWheel (e) {
+    cancelAnimationFrame(nextFrame)
+    nextFrame = requestAnimationFrame(() => {
+      // Find currently viewed image
+      let current
+      for (let index = images.length - 1; index >= 0; index--) {
+        current = images[index]
+        if (!current.id) continue // Only use images with a valid id (first image of each gallery)
+        if (current.offsetLeft < gallery.clientWidth + gallery.scrollLeft) break
+      }
+
+      // Open matching <details>
+      open(element.querySelector('details#' + current.id))
+    })
   }
 }
