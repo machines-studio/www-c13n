@@ -1,22 +1,16 @@
 :root {
+  --projects-offy: 10rem;
+
   --project-gap: 10px;
   --project-gallery-gap: 5px;
   --project-gallery-radius: 5px;
-  --project-meta-padding: 10px;
+  --project-meta-padding: 5px;
 }
 
 .projects {
   padding-inline: 0 !important;
   padding-top: var(--space-large) !important;
   margin-top: 0 !important;
-  contain: layout paint;
-  will-change: transform;
-
-  &-spacer {
-    position: relative;
-    pointer-events: none;
-    @include mobile { display: none; }
-  }
 
   h2 {
     @include font('zone');
@@ -27,151 +21,139 @@
     }
   }
 
-  &__items {
-    @include invisible-scroll(x);
-    display: flex;
-    gap: var(--project-gap);
-    width: 100vw;
-    padding-right: var(--space-gutter);
-    overscroll-behavior-x: none;
+  &__viewport {
+    display: grid;
+    grid-template-columns: 2fr 3fr; // ???
 
     @include mobile {
-      flex-direction: column;
+      display: block;
     }
   }
 
+  &__items {
+    padding-top: calc(var(--space-gutter) / 2);
+  }
+
   &__item {
+    @include no-select;
+
     display: flex;
-    flex: 0 0 auto;
+    padding-block: calc(var(--space-gutter) / 2);
+    padding-right: var(--project-gap);
+    padding-left: calc((100vw - $max-width) / 2);
+
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+
+    @include narrow {
+      padding-left: calc(var(--menu-logo-width) + var(--space-gutter) * 2);
+    }
 
     @include mobile {
+      padding-left: var(--space-gutter);
+    }
+
+    & + * { margin-top: -1px; }
+
+    details {
+      flex: 1;
+      display: flex;
       flex-direction: column;
     }
 
-    header {
-      position: sticky;
-      left: 0;
-
+    summary {
       display: flex;
-      flex-direction: column;
-      width: 33vw;
-      padding-block: var(--space-gutter);
-      padding-right: var(--project-gap);
-      padding-left: calc((100vw - $max-width) / 2);
-
-      background: var(--color-white);
-      border-top: 1px solid;
-      border-bottom: 1px solid;
-
-      @include narrow {
-        padding-left: calc(var(--menu-logo-width) + var(--space-gutter) * 2);
-      }
-
-      @include mobile {
-        width: unset;
-        padding-left: 0;
-        margin-left: var(--space-gutter);
-        border-bottom: 0;
-      }
-
-      // Simulate gap between sticky header and gallery
-      &::after {
-        content: '';
-
-        position: absolute;
-        z-index: 1;
-        top: -1px;
-        right: 0;
-        bottom: -1px;
-
-        border-right: var(--project-gap) solid var(--color-white);
-
-        @include mobile {
-          display: none;
-        }
-      }
-
-      nav {
-        @include mobile {
-          display: none;
-        }
-
-        a {
-          position: absolute;
-          display: block;
-        }
-
-        a:first-child { left: var(--project-gap); transform: scaleX(-1); }
-        a:last-child { right: var(--project-gap); }
-        [disabled] { display: none; }
-      }
-
-      h3 {
-        @include font('zone');
-        padding-right: var(--space-gutter);
-      }
-
-      .description {
-        padding-right: var(--space-gutter);
-        margin-top: calc(var(--space-gutter) / 2);
-        font-size: 90%;
-        font-weight: 600;
-        line-height: 120%;
-      }
-
-      .metas {
-        @include font('menu');
-        margin-top: auto;
-
-        @include mobile {
-          font-size: var(--body-font-size);
-        }
-      }
-
-      .meta {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--project-meta-padding);
-        padding-block: var(--project-meta-padding);
-        padding-right: var(--space-gutter);
-
-        & + .meta {
-          border-top: 1px solid;
-        }
-
-        &[data-label]::before {
-          content: attr(data-label);
-          font-weight: bold;
-          text-transform: uppercase;
-        }
-      }
-
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
     }
 
-    .gallery {
-      display: flex;
-      gap: var(--project-gallery-gap);
+    h3 {
+      @include font('zone');
+    }
+
+    details summary svg {
+      @include easing(transform);
+      width: auto;
+      height: 1em;
+      transform: rotate(0);
+    }
+
+    details[open] summary svg {
+      transform: rotate(90deg);
+    }
+
+    .description {
+      padding-right: var(--space-gutter);
+      margin-top: calc(var(--space-gutter) / 2);
+      margin-bottom: var(--space-gutter);
+
+      font-size: 90%;
+      font-weight: 600;
+      line-height: 120%;
+    }
+
+    .metas {
+      @include font('menu');
+      @include mobile {
+        font-size: var(--body-font-size);
+      }
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--project-meta-padding);
+      padding-block: var(--project-meta-padding);
+      padding-right: var(--space-gutter);
+
+      & + .meta {
+        border-top: 1px solid;
+      }
+
+      &[data-label]::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &__item .gallery,
+  &__gallery {
+    @include invisible-scroll(x);
+    display: flex;
+    gap: var(--project-gallery-gap);
+
+    @include mobile {
+      padding-top: var(--space-gutter);
+    }
+
+    li {
+      flex: 0 0 auto;
+    }
+
+    img {
+      border-radius: var(--project-gallery-radius);
 
       @include mobile {
-        @include invisible-scroll(x);
-        padding-bottom: var(--space-gutter);
-        padding-left: var(--space-gutter);
+        max-width: 70vw;
       }
+    }
+  }
 
-      li {
-        @include mobile {
-          flex: 0 0 auto;
-        }
-      }
+  &__item .gallery { @include desktop { display: none; } }
 
-      img {
-        max-height: 70vh;
-        border-radius: var(--project-gallery-radius);
+  &__gallery {
+    position: relative;
+    margin-left: var(--project-gap);
+    border-bottom-left-radius: var(--project-gallery-radius);
+    border-top-left-radius: var(--project-gallery-radius);
 
-        @include mobile {
-          max-width: 70vw;
-        }
-      }
+    @include mobile { display: none; }
+
+    img {
+      max-height: 70vh;
     }
   }
 }
