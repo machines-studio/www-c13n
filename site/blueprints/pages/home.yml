@@ -1,0 +1,130 @@
+title: Home
+
+layout: columns
+
+columns:
+  left:
+    width: 2/3
+    sections:
+    
+      heroCover:
+        type: fields
+        fields:
+          cover:
+            type: files
+            label: Image accueil
+            sortable: true
+            uploads:
+              template: image
+            layout: cards
+            max: 3
+            image:
+              cover: true
+              ratio: 16/9
+    
+            
+      heroBanner:
+        type: fields
+        fields:
+          heroBannerHeadline:
+            type: headline
+            label: Banner
+          heroBackgroundImage:
+            width: 1/3
+            type: files
+            layout: cards
+            label: Background Image
+            max: 1
+            image:
+              cover: true
+          heroDescription:
+            width: 1/3
+            type: writer
+            label: Description
+          heroSubtitle:
+            width: 1/3
+            type: text
+            label: Subtitle
+
+      videoSection:
+        type: fields
+        fields:
+          videoHeadline:
+            type: headline
+            label: Vidéo pleine page
+          videoFile:
+            type: files
+            label: Video File
+            layout: cards
+            max: 1
+            accept:
+              - video/mp4
+              - video/webm
+              - video/ogg
+
+      keyFigures:
+        type: fields
+        fields:
+          keyFiguresHeadline:
+            type: headline
+            label: Chiffres clés
+          keyFiguresDescription:
+            type: writer
+            label: Description
+          keyFiguresIcons:
+            type: files
+            label: SVG Files
+            layout: cards
+            sortable: true
+            max: 3
+            layout: cards
+            
+
+      skills:
+        type: fields
+        fields:
+          skillsHeadline:
+            type: headline
+            label: Compétences
+          skillsSubtitle:
+            type: text
+            label: Subtitle
+          skillsItems:
+            type: structure
+            label: Skill Items
+            fields:
+              skillTitle:
+                type: text
+                label: Title
+              skillImage:
+                type: files
+                label: Image (JPG/PNG)
+                max: 1
+              skillUrl:
+                type: pages
+                label: pages
+            max: 3
+
+      partners:
+        type: fields
+        fields:
+          partnersHeadline:
+            type: headline
+            label: Partners
+          partnersSubtitle:
+            type: text
+            label: Subtitle
+          partnersLogos:
+            type: files
+            label: Logos (SVG/PNG)
+            layout: cards
+            size: small
+            sortable: true
+
+  right:
+    width: 1/3
+    sections:
+      files:
+        type: files
+        label: Fichiers
+        layout: list

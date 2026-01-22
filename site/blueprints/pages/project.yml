@@ -1,11 +1,30 @@
 # TODO[panel]
-fields:
-  description: fields/writer
-  metas:
-    type: structure
+
+layout: columns
+
+columns:
+  left:
+    width: 2/3
+
     fields:
-      label:
-        type: text
-      value:
-        extends: fields/writer
-        inline: true
+      description: fields/writer
+      metas:
+        type: structure
+        fields:
+          label:
+            type: text
+          value:
+            extends: fields/writer
+            inline: true
+
+  right:
+    width: 1/3
+    sections:
+      files:
+        type: files
+        label: Photos
+        layout: list 
+        size: small         
+        image:
+          cover: true
+          ratio: 16/9

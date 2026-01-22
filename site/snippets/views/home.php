@@ -5,7 +5,7 @@
   // TODO[panel]
   $descriptionPattern = asset('assets/background-green.jpg');
   $description = <<<HTML
-    Contractant général pour la construction de bâtiments industriels,
+    Contractant général pour la construction de bâtiments industriels,
     logistiques et tertiaires clé en main
   HTML;
 

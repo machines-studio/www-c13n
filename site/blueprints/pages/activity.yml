@@ -1,10 +1,34 @@
 # TODO[panel]
+
 sections:
   fields:
     type: fields
     fields:
-      text: fields/writer
+      text: 
+        type: writer
+        label: Présentation
+        width: 1/2
       cover:
         type: files
+        label: Couverture
+        layout: cards
+        image:
+          cover: true
+        width: 1/2
 
   pages:
+    type: pages
+    label: Projets
+    layout: cards          
+    status: listed
+    image:
+      query: page.images.sortBy('sort').first
+      cover: true
+      ratio: 16/9
+    text: "{{ page.title }}"
+    info: "{{ page.status.label }}"
+    size: medium
+
+
+
+

@@ -1,0 +1,70 @@
+title: Le groupe
+
+# TODO[panel]
+
+layout: columns
+
+columns:
+  left:
+    width: 4/5
+
+    fields:
+      description: 
+        label: Présentation
+        type: writer
+      separatorA: 
+        type: line
+      colA: 
+        label: Argument 1
+        type: writer
+        width: 1/3
+      coB: 
+        label: Argument 2
+        type: writer
+        width: 1/3
+      colC: 
+        label: Argument 3
+        type: writer
+        width: 1/3
+      separatorB: 
+        type: line
+      quote: 
+        label: Citation
+        type: writer
+      separatorC: 
+        type: line
+      method: 
+        label: Méthode
+        type: writer
+      methodImage:
+        width: 1/3
+        type: files
+        layout: cards
+        label: Image
+        max: 1
+        image:
+          cover: true
+      methodColA: 
+        label: Méthode 1
+        type: writer
+        width: 1/3
+      methodColB: 
+        label: Méthode 2
+        type: writer
+        width: 1/3
+
+
+  right:
+    width: 1/5
+    sections:
+      files:
+        type: files
+        label: Fichiers
+        layout: cards 
+        size: small         
+        image:
+          cover: true
+          ratio: 16/9
+
+
+

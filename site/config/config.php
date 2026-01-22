@@ -46,7 +46,7 @@ return [
     'menu' => function ($kirby) {
       return [
         'site' => [
-          'label' => 'Accueil',
+          'label' => 'Index',
           'current' => function () : bool {
             $links = ['site'];
             $path  = Kirby\Cms\App::instance()->path();
@@ -54,7 +54,7 @@ return [
           }
         ],
         // Add pages here if needed
-        // 'projects' => menu($kirby, 'projects'),
+        'Accueil' => menu($kirby, 'home'),
         '-',
         'users',
         'languages',

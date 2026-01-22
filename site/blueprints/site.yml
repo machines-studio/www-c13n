@@ -3,9 +3,32 @@ title: Site
 sections:
   pages:
     type: pages
+    label: Pages du menu
+    layout: cards          
+    status: listed
+    image:
+      query: page.cover.toFile
+      cover: true
+      ratio: 16/9
+    text: "{{ page.title }}"
+    info: "{{ page.status.label }}"
+    size: medium
 
-  fields:
+  souspages:
+    type: pages
+    label: Autres pages
+    layout: list          
+    status: unlisted
+
+  footer:
     type: fields
     fields:
-      footerLeft: fields/writer
-      footerRight: fields/writer
+      footerLeft: 
+        type: writer
+        label: Pied de page
+        width: 1/2
+
+      footerRight:
+        type: writer
+        label: Pied de page
+        width: 1/2
