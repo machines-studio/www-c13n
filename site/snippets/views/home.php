@@ -115,15 +115,19 @@
       <?= $home->partnersSubtitle() ?>
     </h2>
 
-    <div class='partners cols-<?= $partners->count() ?>'>
-      <?php foreach ($partners as $page) : ?>
-        <a href='<?= $page->url() ?>'>
+<?   // TODO[panel] ?>
+
+    <div class='partners cols-<?= $home->partnersLogos()->toStructure()->count() ?>'>
+      <?php foreach ($home->partnersLogos()->toStructure() as $partner) : ?>
+        <a  style="mix-blend-mode: multiply;" href='<?= $partner->partnerUrl() ?>'>
           <?php snippet('html/image', [
-            'image' => $page->cover()->toFile()
+            'image' => $partner->partnerLogo()->toFile()
           ]) ?>
         </a>
       <?php endforeach ?>
     </div>
+
+
   <?php endslot() ?>
 <?php endsnippet() ?>
 

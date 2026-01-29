@@ -115,11 +115,18 @@ columns:
             type: text
             label: Subtitle
           partnersLogos:
-            type: files
-            label: Logos (SVG/PNG)
-            layout: cards
-            size: small
+            type: structure
+            label: Partners
             sortable: true
+            fields:
+              partnerLogo:
+                type: files
+                label: Logo (SVG/PNG)
+                max: 1
+                layout: cards
+              partnerUrl:
+                type: url
+                label: URL
 
   right:
     width: 1/3
