@@ -45,11 +45,11 @@ columns:
         image:
           cover: true
       methodColA: 
-        label: Méthode 1
+        label: Colonne 1
         type: writer
         width: 1/3
       methodColB: 
-        label: Méthode 2
+        label: Colonne 2
         type: writer
         width: 1/3
 
