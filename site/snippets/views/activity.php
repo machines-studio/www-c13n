@@ -29,7 +29,7 @@
       snippet('html/image', [
         // TODO[panel]
         'image' => $page->images()->first(),
-        'attributes' => ['class' => 'has-border']
+        'attributes' => ['class' => 'has-border intro']
       ]);
     endslot();
   endsnippet();

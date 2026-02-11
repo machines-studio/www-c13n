@@ -69,6 +69,10 @@ figure {
     border-radius: 5px;
   }
 
+  &.intro{
+    max-height: 80vh;
+  }
+
   img, video {
     @include no-select;
     width: 100%;
