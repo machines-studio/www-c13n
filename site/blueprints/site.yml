@@ -1,35 +1,46 @@
 title: Site
 
-sections:
-  pages:
-    type: pages
-    label: Pages du menu
-    layout: cards          
-    status: listed
-    image:
-      query: page.cover.toFile
-      cover: true
-      ratio: 16/9
-    text: "{{ page.title }}"
-    info: "{{ page.status.label }}"
-    size: medium
+columns:
+  main:
+    width: 2/3
 
-  souspages:
-    type: pages
-    label: Autres pages
-    layout: list          
-    status: unlisted
+    sections:
+
+      pages:
+        type: pages
+        label: Pages du menu
+        layout: cards          
+        status: listed
+        image:
+          query: page.cover.toFile
+          cover: true
+          ratio: 16/9
+        text: "{{ page.title }}"
+        info: "{{ page.status.label }}"
+        size: medium
+
+      footer:
+        type: fields
+        fields:
+          footerLeft: 
+            type: writer
+            label: Pied de page
+            width: 1/2
+
+          footerRight:
+            type: writer
+            label: Pied de page
+            width: 1/2
+
+  msidebarn:
+    width: 1/3
+
+    sections:
 
 
-  footer:
-    type: fields
-    fields:
-      footerLeft: 
-        type: writer
-        label: Pied de page
-        width: 1/2
+      souspages:
+        type: pages
+        label: Autres pages
+        layout: list          
+        status: unlisted
 
-      footerRight:
-        type: writer
-        label: Pied de page
-        width: 1/2
