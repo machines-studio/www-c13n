@@ -16,10 +16,21 @@ sections:
           cover: true
         width: 1/2
 
+  drafts:
+    type: pages
+    label: Brouillons
+    templates:
+      - project
+    status: draft
+    layout: cards
+    size: medium
+
   pages:
     type: pages
     label: Projets
-    layout: cards          
+    templates:
+      - project
+    layout: cards
     status: listed
     image:
       query: page.images.sortBy('sort').first

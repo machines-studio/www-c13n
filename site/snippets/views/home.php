@@ -2,7 +2,7 @@
 
   $activities = $site->index()->listed()->filterBy('intendedTemplate', 'activity');
   $home = $site->index()->unlisted()->filterBy('intendedTemplate', 'home')->first();
-  $partners = new Collection(); // TODO[panel]
+  $partners = $home->partnersLogos()->toStructure();
 
   // TODO[panel]
   $subtitle =  $home->heroSubtitle();
@@ -43,8 +43,7 @@
 ?>
 
 <?php snippet('html/video', [
-  // TODO[panel]
-  'video' => $site->videos()->first()
+  'video' => $home->videos()->first()
 ]) ?>
 
 <?php snippet('components/Section', [
@@ -117,11 +116,11 @@
 
 <?   // TODO[panel] ?>
 
-    <div class='partners cols-<?= $home->partnersLogos()->toStructure()->count() ?>'>
-      <?php foreach ($home->partnersLogos()->toStructure() as $partner) : ?>
-        <a  style="mix-blend-mode: multiply;" href='<?= $partner->partnerUrl() ?>'>
+    <div class='partners cols-<?= $partners->count() ?>'>
+      <?php foreach ($partners as $page) : ?>
+        <a style="mix-blend-mode: multiply;"  href='<?= $page->url() ?>'>
           <?php snippet('html/image', [
-            'image' => $partner->partnerLogo()->toFile()
+            'image' => $page->cover()->toFile()
           ]) ?>
         </a>
       <?php endforeach ?>

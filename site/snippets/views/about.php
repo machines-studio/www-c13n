@@ -32,14 +32,14 @@
 
 <?php
   snippet('components/Section', [
-    'title' => 'Qui sommes-nous ?', // TODO[panel]
+    'title' => $page->subtitleAboutUs(), // TODO[panel]
     'columns' => 2,
     'attributes' => ['class' => 'section--about prose offset']
   ], slots: true);
     slot('content');
       echo Html::div([$about]);
       snippet('components/Mask', [
-        'image' => $page->images()->first(),
+        'image' => $page->imageAboutUs()->toFile(),
         'mask' => 1
       ]);
     endslot();
@@ -48,22 +48,24 @@
 
 <?php
   snippet('components/Section', [
-    'title' => 'Nos engagements', // TODO[panel]
+    'title' => $page->subtitleEngagement(), // TODO[panel]
     'columns' => 3,
     'attributes' => ['class' => 'section--engagements prose offset']
   ], slots: true);
     slot('content');
-      // TODO[panel]
-      echo Html::div([$engagements[0]]);
-      echo Html::div([$engagements[1]]);
-      echo Html::div([$engagements[2]]);
+      // TODO[panel]  
+    
+      echo '<div>' . $page->colA() . '</div>';
+      echo '<div>' . $page->colB() . '</div>';
+      echo '<div>' . $page->colC() . '</div>';
+      
     endslot();
   endsnippet();
 ?>
 
 <?php
   snippet('components/Section', [
-    'title' => 'Notre méthode', // TODO[panel]
+    'title' => $page->metsubtitleMethode(), // TODO[panel]
     'columns' => 2,
     'attributes' => ['class' => 'section--method prose offset']
   ], slots: true);
@@ -71,29 +73,18 @@
     // TODO[panel]
   ?>
     <div>
-      <p>Votre cahier des charges est le point de départ de la conception de votre outil de travail. Les bâtiments que nous réalisons répondent à tous les enjeux de fonctionnalité, de sécurité et de réglementation.</p>
-      <?php snippet('components/Mask', [
-        'image' => $page->images()->first(),
+     <?= $page->methodColA() ?>
+     
+     <?php snippet('components/Mask', [
+        'image' => $page->methodImage()->toFile(),
         'mask' => 2
       ]) ?>
     </div>
 
     <div>
-      <p>En premières étapes de conception, nous établissons l’ensemble des besoins et contraintes de votre site, afin de développer une proposition multicritère en parfaite adéquation avec vos attentes :</p>
-      <ul>
-        <li>Types de produits</li>
-        <li>Conditions de stockage ou de production (température de conservation, hygrométrie, inflammabilité, poids, lumière…)</li>
-        <li>Effectifs</li>
-        <li>Process de fabrication (machines de pointe, hautes températures, vibrations, bruit…)</li>
-        <li>Chaîne d’approvisionnement ou stockage </li>
-        <li>Mode d’acheminement des produits (poids lourds, fourgons, voitures, péniches, vélos cargos pour une plateforme dernier kilomètre)…</li>
-      </ul>
-      <p>La sécurité est un objectif invariant de la construction des sites productifs, qui sera respecté à toutes les étapes de l’opération.</p>
-      <p>C13N Group est habilité à travailler sur des sites Seveso et sur les bâtiments soumis au risque technologique.</p>
+           <?= $page->methodColB() ?>
 
-      <h4>Pour faciliter votre prise de décision : la projection du ROI de votre opération</h4>
-      <p>À partir de vos indicateurs de performance et de notre connaissance de différents secteurs d’activités (industrie, hôtellerie, tertiaire, logement…), nous évaluons votre retour sur investissement. Ce calcul intègre aussi bien le coût de construction, de fonctionnement et d’entretien, que votre gain de productivité et de chiffre d’affaires. C’est une précieuse aide à la décision pour vos comités d’investissement.</p>
-    </div>
+  </div>
   <?php
     endslot();
   endsnippet();

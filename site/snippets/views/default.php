@@ -1,19 +1,44 @@
-<?php snippet('components/Article', [
-  'title' => $page->title()
-], slots: true) ?>
+<?php
+  // TODO[panel]
+  $header = $page->text()->kirbytext();
+?>
 
-  <?php slot('content') ?>
-    <div class='prose'>
-      <?= $page->text()->kirbytext() ?>
-    </div>
-  <?php endslot() ?>
+<?php
+  snippet('components/Section', [
+    'columns' => 2,
+    'attributes' => ['class' => 'section--header offset']
+  ], slots: true);
+    slot('content');
+      snippet('components/Breadcrumb');
+      echo Html::header([$header], ['class' => 'prose']);
+    endslot();
+  endsnippet();
+?>
 
-  <?php slot('footer') ?>
-    <?php
-      snippet('components/Hello', ['firstname' => 'Stéphane']);
-      snippet('components/Hello', ['firstname' => 'Arnaud']);
-      snippet('components/Hello');
-    ?>
-  <?php endslot() ?>
+<?php
+  snippet('components/Section', [
+    'title' => $page->title(),
+    'attributes' => ['class' => 'section--cover offset']
+  ], slots: true);
+    slot('bleed');
+      snippet('html/image', [
+        // TODO[panel]
+        'image' => $page->images()->first(),
+        'attributes' => ['class' => 'has-border']
+      ]);
+    endslot();
+  endsnippet();
+?>
 
-<?php endsnippet() ?>
+<?php
+  $activities = $site->index()->listed()->filterBy('intendedTemplate', 'activity');
+  snippet('components/Section', [
+    'tag' => 'nav',
+    'columns' => $activities->count(),
+    'attributes' => ['class' => 'activities']
+  ], slots: true);
+    slot('content');
+      foreach ($activities as $page) snippet('components/Activity', $page);
+    endslot();
+  endsnippet();
+?>

@@ -23,7 +23,7 @@
     slot('bleed');
       snippet('html/image', [
         // TODO[panel]
-        'image' => $site->images()->first(),
+        'image' => $page->images()->first(),
         'attributes' => ['class' => 'has-border']
       ]);
     endslot();

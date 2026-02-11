@@ -119,12 +119,12 @@ columns:
             label: Partners
             sortable: true
             fields:
-              partnerLogo:
+              cover:
                 type: files
                 label: Logo (SVG/PNG)
                 max: 1
                 layout: cards
-              partnerUrl:
+              url:
                 type: url
                 label: URL
 

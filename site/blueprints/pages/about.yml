@@ -9,16 +9,31 @@ columns:
     width: 4/5
 
     fields:
+      subtitleAboutUs: 
+        label: Titre
+        type: writer
+      imageAboutUs:
+        width: 1/3
+        type: files
+        layout: cards
+        label: Image
+        max: 1
+        image:
+          cover: true
       description: 
+        width: 2/3
         label: Présentation
         type: writer
       separatorA: 
         type: line
+      subtitleEngagement: 
+        label: Titre (engagements)
+        type: writer
       colA: 
         label: Argument 1
         type: writer
         width: 1/3
-      coB: 
+      colB: 
         label: Argument 2
         type: writer
         width: 1/3
@@ -33,7 +48,7 @@ columns:
         type: writer
       separatorC: 
         type: line
-      method: 
+      metsubtitleMethode: 
         label: Méthode
         type: writer
       methodImage:

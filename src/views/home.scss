@@ -86,6 +86,30 @@ main[data-barba-namespace='home'] {
     }
   }
 
+  .section--partners {
+    .partners {
+      --columns: 5;
+      align-items: center;
+
+      @include mobile {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      figure {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+      }
+
+      img {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+
   .section--skills,
   .section--partners {
     .wrapper {
