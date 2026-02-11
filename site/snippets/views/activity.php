@@ -27,8 +27,7 @@
   ], slots: true);
     slot('bleed');
       snippet('html/image', [
-        // TODO[panel]
-        'image' => $page->images()->first(),
+        'image' => $page->cover()->toFile(),
         'attributes' => ['class' => 'has-border intro']
       ]);
     endslot();
