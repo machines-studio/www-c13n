@@ -63,6 +63,25 @@
   endsnippet();
 ?>
 
+
+<?php
+  snippet('components/Section', [
+    'attributes' => [
+      'class' => 'section--description',
+      'style' => "--section-background: url('{$page->quoteImage()->toFile()->url()}');"
+    ]
+  ], slots: true);
+    slot('bleed');
+    endslot();
+
+    slot('content');
+      echo Html::div([$page->quote()], ['class' => 'prose quote kiwi']);
+    endslot();
+  endsnippet();
+?>
+
+
+
 <?php
   snippet('components/Section', [
     'title' => $page->metsubtitleMethode(), // TODO[panel]
