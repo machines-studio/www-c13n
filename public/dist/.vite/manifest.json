@@ -40,7 +40,7 @@
     "src": "assets/switzer-variable.woff2"
   },
   "components/Menu.js": {
-    "file": "assets/Menu-CsvzVtpk.js",
+    "file": "assets/Menu-Cztk5-JK.js",
     "name": "Menu",
     "src": "components/Menu.js",
     "isDynamicEntry": true,
@@ -55,7 +55,7 @@
     "isDynamicEntry": true
   },
   "index.js": {
-    "file": "assets/index-CBPc3can.js",
+    "file": "assets/index-DUOBC_NT.js",
     "name": "index",
     "src": "index.js",
     "isEntry": true,
@@ -66,21 +66,21 @@
     ]
   },
   "index.scss": {
-    "file": "assets/index-727kisnZ.css",
+    "file": "assets/index-D0GwLIqv.css",
     "src": "index.scss",
     "isEntry": true
   },
   "panel.css": {
-    "file": "assets/panel-CvZKDwJf.js",
+    "file": "assets/panel-DiF1USl4.js",
     "name": "panel",
     "src": "panel.css",
     "isEntry": true,
     "css": [
-      "assets/panel-B_SY1GJM.css"
+      "assets/panel-tn0RQdqM.css"
     ]
   },
   "panel.js": {
-    "file": "assets/panel-08zNAYie.js",
+    "file": "assets/panel-DfESdCUy.js",
     "name": "panel",
     "src": "panel.js",
     "isEntry": true,
@@ -89,7 +89,7 @@
     ]
   },
   "views/default.js": {
-    "file": "assets/default-DIhgwX33.js",
+    "file": "assets/default-BL7ClbNl.js",
     "name": "default",
     "src": "views/default.js",
     "isDynamicEntry": true,
