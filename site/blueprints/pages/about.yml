@@ -24,6 +24,28 @@ columns:
         width: 2/3
         label: Présentation
         type: writer
+
+
+      separatorAB: 
+        type: line
+      subtitleHistoire: 
+        label: Titre (Notre histoire)
+        type: writer
+      colHistoireA: 
+        label: Argument 1
+        type: writer
+        width: 1/3
+      colHistoireB: 
+        label: Argument 2
+        type: writer
+        width: 1/3
+      colHistoireC: 
+        label: Argument 3
+        type: writer
+        width: 1/3
+
+
+
       separatorA: 
         type: line
       subtitleEngagement: 
