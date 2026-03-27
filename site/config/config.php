@@ -2,6 +2,7 @@
 
 include_once 'helpers.php';
 date_default_timezone_set('Europe/Paris');
+error_reporting(E_ALL & ~E_DEPRECATED);
 
 return [
   'date' => [
@@ -61,6 +62,13 @@ return [
         'system'
       ];
     }
+  ],
+
+  'cache' => [
+    'pages' => [
+      'active' => true,
+      'ignore' => fn ($page) => kirby()->user() !== null
+    ]
   ],
 
   'sitemap' => [

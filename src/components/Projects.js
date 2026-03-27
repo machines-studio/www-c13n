@@ -17,7 +17,12 @@ export function hydrate (element) {
   for (const detail of details) detail.addEventListener('click', handleDetailClick)
   gallery.addEventListener('wheel', handleGalleryWheel)
 
-  return {}
+  return {
+    destroy: () => {
+      gallery.removeEventListener('wheel', handleGalleryWheel)
+      for (const detail of details) detail.removeEventListener('click', handleDetailClick)
+    }
+  }
 
   function open (targetDetail) {
     if (!targetDetail) return

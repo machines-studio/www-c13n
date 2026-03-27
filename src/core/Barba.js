@@ -8,7 +8,7 @@ export function bootstrap ({
   components = { global: [], local: [] },
   afterEnter = noop
 } = {}) {
-  Barba.use(prefetch)
+  Barba.use(prefetch, { timeout: 2000 })
   Barba.init({
     debug: import.meta.env.DEV,
     prevent: ({ el }) => el?.classList?.contains('no-barba'),
